@@ -20,7 +20,7 @@ module Blogit
     blogit_authenticate(except: [:index, :show])
 
     def index
-      @posts = Post.order('created_at DESC').page(params[:page])
+      @posts = Post.order('created_at DESC').page(params[:page]).per(Blogit.configuration.posts_per_page)
     end
 
     def show
