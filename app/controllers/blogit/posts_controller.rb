@@ -4,13 +4,13 @@ module Blogit
   # the main_app
   class PostsController < ::Blogit::ApplicationController
 
-  
+
     # If using Blogit's Create, Update and Destroy actions AND ping_search_engines is
     # set, call ping_search_engines after these requests
     if Blogit.configuration.include_admin_actions
       after_filter :ping_search_engines, only: [:create, :update, :destroy], :if => lambda { Blogit.configuration.ping_search_engines }
     end
-    
+
     # Raise a 404 error if the admin actions aren't to be included
     # We can't use blogit_conf here because it sometimes raises NoMethodError in main app's routes
     unless Blogit.configuration.include_admin_actions
@@ -62,7 +62,7 @@ module Blogit
     protected
 
     def valid_params
-      params.require(:post).permit(:title, :body, :blogger_type, :blogger_id)
+      params.require(:post).permit(:title, :body, :blogger_type, :blogger_id, :tag_list)
     end
 
     private
@@ -71,8 +71,8 @@ module Blogit
       # Don't include admin actions if include_admin_actions is false
       render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
     end
-    
-    
+
+
     # @See the Pingr gem for more info https://github.com/KatanaCode/pingr
     def ping_search_engines
       case blogit_conf.ping_search_engines
