@@ -20,6 +20,7 @@ en:
         one: "One error prohibited this post form being saved:"
         other: "%{count} errors prohibited this post form being saved:"
       give_your_post_a_title: "Give your post a title"
+      give_your_post_an_excerpt: "Give your post an excerpt"
       write_something_here: "Write something here..."
       tip_you_can_style_your_post_using: "Tip: you can style your post using %{parser}"
       or: "or"
@@ -43,4 +44,3 @@ en:
   time:
     formats:
       plain_month_only: "%B"
-

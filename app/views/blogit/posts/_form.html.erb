@@ -18,6 +18,10 @@
     <% end %>
 
     <%= field do %>
+      <%= f.text_field :excerpt, placeholder: t(:give_your_post_an_excerpt, scope: 'blogit.posts') %>
+    <% end %>
+
+    <%= field do %>
       <%= f.text_area :body, placeholder: t(:write_something_here, scope: 'blogit.posts') %>
     <% end %>
   </fieldset>

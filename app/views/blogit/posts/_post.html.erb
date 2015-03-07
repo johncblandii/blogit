@@ -1,10 +1,14 @@
+<%
+  show_excerpt ||= false
+%>
+
 <%= content_tag(:article, id: "blog_post_#{post.id}", class: "blog_post") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>
 
   <%# Render the body of this blog post (as Markdown) %>
-  <%= render "blogit/posts/post_body", post: post %>
+  <%= render "blogit/posts/post_body", post: post, show_excerpt: show_excerpt %>å
 
   <%# Render admin links to edit/delete this post %>
   <%= render "blogit/posts/post_links", post: post %>

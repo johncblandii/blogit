@@ -62,7 +62,7 @@ module Blogit
     protected
 
     def valid_params
-      params.require(:post).permit(:title, :body, :blogger_type, :blogger_id, :tag_list)
+      params.require(:post).permit(:title, :excerpt, :body, :blogger_type, :blogger_id, :tag_list)
     end
 
     private
